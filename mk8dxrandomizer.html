@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Mario Kart Combo</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20;
+    }        
+        
+    #logo {
+      margin-bottom: 20px;
+    }
+
+    #combo-textbox {
+      width: 400px;
+      height: 200px;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    body {
+      background-image: url("https://i.pinimg.com/originals/66/03/77/660377cf113bf7f1235f8c48bfff7855.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    #randomize-button {
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    const characters = [
+    {
+      name: "Mario",
+      image: "https://mario.wiki.gallery/images/d/d9/MK8_Mario_Icon.png"
+    },  
+    "Luigi",
+    "Peach",
+    "Daisy",
+    "Rosalina",
+    "Tanooki Mario",
+    "Cat Peach",
+    "Bird",
+    "Yoshi",
+    "Toad",
+    "Koopa Troopa",
+    "Shy Guy",
+    "Lakitu",
+    "Toadette",
+    "King Boo",
+    "Baby Mario",
+    "Baby Luigi",
+    "Baby Peach",
+    "Baby Daisy",
+    "Baby Rosalina",
+    "Gold/Metal Mario",
+    "Pink Gold Peach",
+    "Wario",
+    "Waluigi",
+    "Donkey Kong",
+    "Bowser",
+    "Dry Bones",
+    "Bowser Jr.",
+    "Dry Bowser",
+    "Lemmy",
+    "Larry",
+    "Wendy",
+    "Ludwig",
+    "Iggy",
+    "Roy",
+    "Morton",
+    "Inkling Girl",
+    "Inkling Boy",
+    "Link",
+    "Villager (Male)",
+    "Villager (Female)",
+    "Isabelle",
+    "Mii (Light)",
+    "Mii (Medium)",
+    "Mii (Heavy)",
+    ];
+  
+    const vehicles = [
+  "Standard Kart",
+  "Pipe Frame",
+  "Mach 8",
+  "Steel Driver",
+  "Cat Cruiser",
+  "Circuit Special",
+  "Tri-Speeder",
+  "Badwagon",
+  "Prancer",
+  "Biddybuggy",
+  "Landship",
+  "Sneeker",
+  "Sports Coupe",
+  "Gold Kart",
+  "GLA",
+  "W 25 Silver Arrow",
+  "300 SL Roadster",
+  "Blue Falcon",
+  "Tanooki Kart",
+  "B Dasher",
+  "Streetle",
+  "P-Wing",
+  "Koopa Clown",
+  "Standard Bike",
+  "The Duke",
+  "Flame Rider",
+  "Varmint",
+  "Mr Scooty",
+  "Master Cycle Zero",
+  "City Tripper",
+  "Sport bikes",
+  "Comet",
+  "Sport Bike",
+  "Jet Bike",
+  "Yoshi Bike",
+  "Master Cycle",
+  "Standard ATV",
+  "Standard Quad",
+  "Wild Wiggler",
+  "Teddy Buggy",
+  "Bone Rattler",
+  "Splat Buggy",
+  "Inkstriker",
+    ];
+  
+    const wheels = [
+    "Standard",
+    "Monster",  
+    "Roller",
+    "Slim",
+    "Slick",
+    "Metal",
+    "Button",
+    "Off-Road",
+    "Sponge",
+    "Wood",
+    "Cushion",
+    "Blue Standard",
+    "Hot Monster",
+    "Azure Roller",
+    "Crimson Slim",
+    "Cyber Slick",
+    "Retro Off-Road",
+    "Gold Tires",
+    "GLA Tires",
+    "Triforce Tires",
+    "Ancient Tires",
+    "Leaf Tires",
+    ];
+  
+    const gliders = [
+    "Super Glider",
+    "Cloud Glider",
+    "Wario Wing",
+    "Waddle Wing",
+    "Peach Parasol",
+    "Parachute",
+    "Parafoil",
+    "Flower Glider",
+    "Bowser Kite",
+    "Plane Glider",
+    "MKTV Parafoil",
+    "Gold Glider",
+    "Hylian Kite",
+    "Paraglider",
+    "Paper Glider",
+    ];
+  
+    // Function to randomly select a character
+    function chooseRandomCharacter() {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      return characters[randomIndex];
+    }
+  
+    // Function to randomly select a vehicle
+    function chooseRandomVehicle() {
+      const randomIndex = Math.floor(Math.random() * vehicles.length);
+      return vehicles[randomIndex];
+    }
+  
+    // Function to randomly select wheels
+    function chooseRandomWheels() {
+      const randomIndex = Math.floor(Math.random() * wheels.length);
+      return wheels[randomIndex];
+    }
+  
+    // Function to randomly select a glider
+    function chooseRandomGlider() {
+      const randomIndex = Math.floor(Math.random() * gliders.length);
+      return gliders[randomIndex];
+    }
+  
+    function handleButtonClick() {
+      const randomCharacter = chooseRandomCharacter();
+      const randomVehicle = chooseRandomVehicle();
+      const randomWheels = chooseRandomWheels();
+      const randomGlider = chooseRandomGlider();
+      const comboText = `Randomly selected character: ${randomCharacter}\nRandomly selected vehicle: ${randomVehicle}\nRandomly selected wheels: ${randomWheels}\nRandomly selected glider: ${randomGlider}`;
+      const comboTextbox = document.getElementById("combo-textbox");
+      comboTextbox.value = comboText;
+    }
+
+        // Function to display the randomized combo
+    function displayRandomCombo() {
+      const randomCharacter = chooseRandomCharacter();
+      const characterName = randomCharacter.name;
+      const characterImage = randomCharacter.image;
+      const comboText = `Randomly selected character: ${characterName}`;
+
+      // Create an image element
+      const imageElement = document.createElement("img");
+      imageElement.src = imageFolder + characterImage;
+      imageElement.alt = characterName;
+
+      // Create a paragraph element
+      const comboTextElement = document.createElement("p");
+      comboTextElement.textContent = comboText;
+
+      // Clear the previous content
+      const comboContainer = document.getElementById("combo-container");
+      comboContainer.innerHTML = "";
+
+      // Append the image and text elements to the container
+      comboContainer.appendChild(imageElement);
+      comboContainer.appendChild(comboTextElement);
+    }
+  </script>
+</head>
+<body>
+  <div id="logo">
+    <img src="https://mariokart8.nintendo.com/assets/img/global/logo-mk8.png" alt="Mario Kart 8 Logo">
+  </div>
+  <div id="button-container">
+    <button id="randomize-button" onclick="handleButtonClick()">Generate Random Combo</button>
+  </div>
+  <textarea id="combo-textbox" readonly></textarea>
+</body>
+</html>
