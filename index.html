@@ -207,33 +207,8 @@
       const randomWheels = chooseRandomWheels();
       const randomGlider = chooseRandomGlider();
       const comboText = `Randomly selected character: ${randomCharacter}\nRandomly selected vehicle: ${randomVehicle}\nRandomly selected wheels: ${randomWheels}\nRandomly selected glider: ${randomGlider}`;
-      const comboTextbox = document.getElementById("combo-textbox");
+      const comboTextbox = document.getElementById('combo-textbox');
       comboTextbox.value = comboText;
-    }
-
-        // Function to display the randomized combo
-    function displayRandomCombo() {
-      const randomCharacter = chooseRandomCharacter();
-      const characterName = randomCharacter.name;
-      const characterImage = randomCharacter.image;
-      const comboText = `Randomly selected character: ${characterName}`;
-
-      // Create an image element
-      const imageElement = document.createElement("img");
-      imageElement.src = imageFolder + characterImage;
-      imageElement.alt = characterName;
-
-      // Create a paragraph element
-      const comboTextElement = document.createElement("p");
-      comboTextElement.textContent = comboText;
-
-      // Clear the previous content
-      const comboContainer = document.getElementById("combo-container");
-      comboContainer.innerHTML = "";
-
-      // Append the image and text elements to the container
-      comboContainer.appendChild(imageElement);
-      comboContainer.appendChild(comboTextElement);
     }
   </script>
 </head>
